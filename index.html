@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="id" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabina • 21 Tahun</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <!-- Library untuk Ikon -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Garet:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; padding: 0; scroll-behavior: smooth; }
+    body { font-family: 'Garet', sans-serif; background: #faf8f6; }
+    .font-display { font-family: 'Montserrat', sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+    .font-heading { font-family: 'Montserrat', sans-serif; font-weight: 600; }
+    
+    .hero-bg { background: linear-gradient(135deg, #fdf6f1 0%, #fef0f5 100%); min-height: 100vh; }
+    .fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; }
+    .fade-in-delay-1 { animation-delay: 0.1s; }
+    .fade-in-delay-2 { animation-delay: 0.2s; }
+    .fade-in-delay-3 { animation-delay: 0.3s; }
+    .fade-in-delay-4 { animation-delay: 0.4s; }
+    @keyframes fadeIn { to { opacity: 1; } }
+    
+    /* Masonry Layout */
+    .masonry-columns { columns: 2; column-gap: 1rem; }
+    @media (min-width: 768px) { .masonry-columns { columns: 3; } }
+    .masonry-columns > div { break-inside: avoid; margin-bottom: 1rem; }
+
+    /* Timeline specific */
+    .timeline-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .timeline-line { width: 2px; background: #e8d8d0; }
+    
+    section { padding: 4rem 1.5rem; }
+    @media (max-width: 768px) { section { padding: 3rem 1.5rem; } }
+
+    /* Skeleton Loading for Images */
+    .img-wrapper {
+        background: #f0e6e0;
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        overflow: hidden;
+        border-radius: inherit;
+        position: relative;
+    }
+    @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: .5; }
+    }
+    .smooth-img {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+    
+    /* Hover effect for clickable images */
+    .img-hover-zoom img { transition: transform 0.4s ease; }
+    .img-hover-zoom:hover img { transform: scale(1.05); }
+    .img-hover-zoom::after {
+        content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.1); 
+        opacity: 0; transition: opacity 0.3s ease; pointer-events: none;
+    }
+    .img-hover-zoom:hover::after { opacity: 1; }
+    
+    /* Photo dump random rotation */
+    .dump-pic:nth-child(odd) { transform: rotate(2deg); }
+    .dump-pic:nth-child(even) { transform: rotate(-2deg); }
+  </style>
+ </head>
+ <body class="h-full overflow-auto">
+  <div id="app" class="w-full h-full">
+
+   <!-- HERO SECTION -->
+   <section class="hero-bg w-full flex flex-col items-center justify-center text-center relative overflow-hidden" id="capture-area">
+    <div class="absolute top-0 left-0 w-96 h-96 rounded-full opacity-5" style="background: #d4849a; transform: translate(-50%, -50%);"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 rounded-full opacity-5" style="background: #c4a07a; transform: translate(50%, 50%);"></div>
+    <div class="relative z-10 max-w-4xl mx-auto">
+     <p class="text-xs font-heading tracking-[0.3em] uppercase fade-in" style="color: #c4a07a;">Untuk Hari yang Paling Dirayakan</p>
+     <h1 class="font-display text-6xl md:text-8xl mt-8 leading-none fade-in fade-in-delay-1" style="color: #3d2c2c;">Sabina Belle Marella Selaveda</h1>
+     <h2 class="font-display text-2xl md:text-4xl mt-6 fade-in fade-in-delay-2" style="color: #d4849a;">Ulang tahun ke-21</h2>
+     <div class="flex items-center justify-center gap-2 mt-8 fade-in fade-in-delay-3">
+      <div class="h-px w-8" style="background: #c4a07a;"></div><i data-lucide="heart" style="width: 16px; height: 16px; color: #d4849a;"></i>
+      <div class="h-px w-8" style="background: #c4a07a;"></div>
+     </div>
+     <p class="mt-8 text-sm md:text-base leading-relaxed max-w-2xl mx-auto fade-in fade-in-delay-4" style="color: #7a6b6b;">Untuk sayangku yang aktif, rasa ingin tahunya tinggi, mbak-mbak konten kreator andalan, bocah ala, dan orang yang pelan-pelan jadi ruang nyaman di hidupku.</p>
+    </div>
+   </section>
+
+   <!-- TIMELINE SECTION -->
+   <section class="w-full max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+     <p class="text-xs font-heading tracking-[0.2em] uppercase" style="color: #c4a07a;">Perjalanan</p>
+     <h3 class="font-display text-3xl md:text-4xl mt-3" style="color: #3d2c2c;">Awal Kuliah Hingga Hari Ini</h3>
+    </div>
+    <div class="relative">
+     <div class="absolute left-1/2 top-0 bottom-0 -translate-x-1/2 timeline-line hidden md:block"></div>
+     <div class="space-y-16 md:space-y-24">
+      
+      <!-- Tahun 1 -->
+      <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-12 fade-in">
+       <div class="md:w-1/2 md:text-right md:pr-8">
+        <p class="font-heading text-sm tracking-wider uppercase" style="color: #c4a07a;">Tahun Pertama</p>
+        <p class="mt-2 text-base leading-relaxed" style="color: #5a4a4a;">Memilih masuk program studi hukum dengan semangat yang menyala. Masih mahasiswa baru yang polos, tetapi dari sorot mata kamu terlihat memiliki tekad keras untuk menjadi orang yang bermanfaat.</p>
+       </div>
+       <div class="timeline-dot md:relative z-10 flex-shrink-0 mx-auto md:mx-0" style="background: #d4849a;"></div>
+       <div class="md:w-1/2 md:pl-8 flex justify-center md:justify-start">
+         <div class="img-wrapper img-hover-zoom cursor-pointer w-48 h-48 md:w-64 md:h-64 rounded-2xl shadow-lg rotate-2" onclick="openLightbox('https://i.ibb.co.com/60c7sb0J/IMG-20230902-143118-Sabina.jpg')">
+            <img src="https://i.ibb.co.com/60c7sb0J/IMG-20230902-143118-Sabina.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover smooth-img" onload="this.style.opacity=1; this.parentElement.style.animation='none';">
+         </div>
+       </div>
+      </div>
+
+      <!-- Tahun 2 -->
+      <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-12 md:flex-row-reverse fade-in">
+       <div class="md:w-1/2 md:text-left md:pl-8">
+        <p class="font-heading text-sm tracking-wider uppercase" style="color: #c4a07a;">Tahun Kedua</p>
+        <p class="mt-2 text-base leading-relaxed" style="color: #5a4a4a;">Kamu mulai menemukan passion, bergabung ke organisasi, membangun relasi, dan membuktikan jika kamu bukan hanya fokus di akademik, tapi juga aktif di publik.</p>
+       </div>
+       <div class="timeline-dot md:relative z-10 flex-shrink-0 mx-auto md:mx-0" style="background: #d4849a;"></div>
+       <div class="md:w-1/2 md:pr-8 flex justify-center md:justify-end">
+        <div class="img-wrapper img-hover-zoom cursor-pointer w-48 h-48 md:w-64 md:h-64 rounded-2xl shadow-lg -rotate-2" onclick="openLightbox('https://i.ibb.co.com/ymySbYjM/IMG-20240824-010009-422.jpg')">
+            <img src="https://i.ibb.co.com/ymySbYjM/IMG-20240824-010009-422.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover smooth-img" onload="this.style.opacity=1; this.parentElement.style.animation='none';">
+        </div>
+       </div>
+      </div>
+
+      <!-- Tahun 3 -->
+      <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-12 fade-in">
+       <div class="md:w-1/2 md:text-right md:pr-8">
+        <p class="font-heading text-sm tracking-wider uppercase" style="color: #c4a07a;">Tahun Ketiga</p>
+        <p class="mt-2 text-base leading-relaxed" style="color: #5a4a4a;">Makin bisa membagi waktu dan energi. Urusan kampus tetap jalan, organisasi diselesaikan, dan membuat konten yang berkesan. Aku bangga ngelihat kamu berproses sejauh ini.</p>
+       </div>
+       <div class="timeline-dot md:relative z-10 flex-shrink-0 mx-auto md:mx-0" style="background: #d4849a;"></div>
+       <div class="md:w-1/2 md:pl-8 flex justify-center md:justify-start">
+        <div class="img-wrapper img-hover-zoom cursor-pointer w-48 h-48 md:w-64 md:h-64 rounded-2xl shadow-lg rotate-1" onclick="openLightbox('https://i.ibb.co.com/tpSrwtnM/1c593f45-a51f-4c8a-976d-400a54bf30b3.jpg')">
+            <img src="https://i.ibb.co.com/tpSrwtnM/1c593f45-a51f-4c8a-976d-400a54bf30b3.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover smooth-img" onload="this.style.opacity=1; this.parentElement.style.animation='none';">
+        </div>
+       </div>
+      </div>
+
+      <!-- Hari Ini -->
+      <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-12 md:flex-row-reverse fade-in">
+       <div class="md:w-1/2 md:text-left md:pl-8">
+        <p class="font-heading text-sm tracking-wider uppercase" style="color: #c4a07a;">Hari Ini</p>
+        <p class="mt-2 text-base leading-relaxed" style="color: #5a4a4a;">Dan sampailah di angka 21. Pemikiran yang makin matang, tetapi tetap dengan tingkah absurd yang selalu bikin rindu. Ini adalah awal dari langkah-langkah besar untuk mencapai hal yang sedang kamu usahakan</p>
+       </div>
+       <div class="timeline-dot md:relative z-10 flex-shrink-0 mx-auto md:mx-0" style="background: #d4849a;"></div>
+       <div class="md:w-1/2 md:pr-8 flex justify-center md:justify-end">
+        <div class="img-wrapper img-hover-zoom cursor-pointer w-48 h-48 md:w-64 md:h-64 rounded-2xl shadow-lg -rotate-1" onclick="openLightbox('https://i.ibb.co.com/W4JWBzKW/IMG-20260501-WA0020.jpg')">
+            <img src="https://i.ibb.co.com/W4JWBzKW/IMG-20260501-WA0020.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover smooth-img" onload="this.style.opacity=1; this.parentElement.style.animation='none';">
+        </div>
+       </div>
+      </div>
+
+     </div>
+    </div>
+   </section>
+
+   <!-- DUAL COLUMN SECTION: Bocah Cilik & Bocah Gede -->
+   <section class="w-full max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-12 md:gap-16">
+     
+     <!-- Bocah Cilik -->
+     <div class="fade-in">
+      <div class="mb-6 text-center md:text-left">
+       <p class="text-xs font-heading tracking-[0.2em] uppercase" style="color: #c4a07a;">Sisi Pertama</p>
+       <h3 class="font-display text-3xl md:text-4xl mt-2" style="color: #3d2c2c;">Bocah Cilik</h3>
+      </div>
+      <!-- Collage 12 Photos -->
+      <div class="grid grid-cols-3 gap-2 mb-6">
+        <script>
+            const bocahCilikPhotos = [
+                "67T5GLXv/IMG-20251221-WA0048.jpg", "Kct5q0QC/IMG-20251221-WA0041.jpg", "JWqvDQVJ/IMG-20251221-WA0040.jpg",
+                "1tj9YLjv/IMG-20251221-WA0037.jpg", "C5zdqWdy/IMG-20251221-WA0035.jpg", "sdztCXBf/IMG-20251221-WA0034.jpg",
+                "VP4SKpP/IMG-20251221-WA0033.jpg", "XZ9Pj5fH/IMG-20251221-WA0032.jpg", "Ps1mCsMS/IMG-20251221-WA0031.jpg",
+                "rjkvnbv/IMG-20251221-WA0028.jpg", "KjNYf6PW/IMG-20251221-WA0023.jpg", "JRzZcCfV/IMG-20251221-WA0018.jpg"
+            ];
+            bocahCilikPhotos.forEach((photo) => {
+                let fullUrl = "https://i.ibb.co.com/" + photo;
+                document.write(`
+                <div class="img-wrapper img-hover-zoom cursor-pointer w-full aspect-square rounded-lg" onclick="openLightbox('${fullUrl}')">
+                    <img src="${fullUrl}" loading="lazy" decoding="async" class="w-full h-full object-cover smooth-img" onload="this.style.opacity=1; this.parentElement.style.animation='none';">
+                </div>`);
+            });
+        </script>
+      </div>
+      <p class="text-base leading-relaxed mb-6" style="color: #5a4a4a;">Di satu sisi, kamu itu anak hukum dan orang yang serius. Tapi bagiku, kamu tetap "bocah cilik" yang lagi antusias merangkai tujuan-tujuan besarnya.</p>
+     </div>
+
+     <!-- Bocah Gede -->
+     <div class="fade-in fade-in-delay-1">
+      <div class="mb-6 text-center md:text-left">
+       <p class="text-xs font-heading tracking-[0.2em] uppercase" style="color: #c4a07a;">Sisi Kedua</p>
+       <h3 class="font-display text-3xl md:text-4xl mt-2" style="color: #3d2c2c;">Bocah Gede</h3>
+      </div>
+      <!-- Collage 12 Photos -->
+      <div class="grid grid-cols-3 gap-2 mb-6">
+        <script>
+            const bocahGedePhotos = [
+                "PZ1c8TFQ/0-B3-D15-BB-CC67-4-A35-AED6-BC84-D53-B97-D1-L0-001-29-4-2026-23-17-59.jpg",
+                "NggjZDDj/C1184-E87-E9-CB-4-DC6-B6-BF-A44-C10-E3-CC5-B-L0-001-1-2-2026-16-01-34.jpg",
+                "wZ99Pt80/39-FA9-AEC-DA1-A-49-AE-9-C77-889398-D8-BD37-L0-001-1-2-2026-16-04-05.jpg",
+                "JRgq9Nm0/E055-A5-F9-BDDC-408-C-8-A6-A-BC1-C5648-F298-L0-001-1-2-2026-11-49-20.jpg",
+                "HfQtSz7c/6-D4-F1-CA5-5840-46-FD-9-E8-D-A5-B9-E52-EE501-L0-001-31-1-2026-21-45-49.jpg",
+                "TBg5vqNw/IMG-3432-1.jpg", "DH3Mkmj1/IMG-20251026-WA0004.jpg", "svznT8BH/IMG-20260421-WA0035.jpg",
+                "S4L83mNC/7-1.jpg", "CKhKCLLn/9-1.jpg", "fzc9q13j/8-1.jpg", "1Y7jStJj/AC553503-CCDB-416-B-9-B4-B-326028832448-L0-001-1.jpg"
+            ];
+            bocahGedePhotos.forEach((photo) => {
+                let fullUrl = "https://i.ibb.co.com/" + photo;
+                document.write(`
+                <div class="img-wrapper img-hover-zoom cursor-pointer w-full aspect-square rounded-lg" onclick="openLightbox('${fullUrl}')">
+                    <img src="${fullUrl}" loading="lazy" decoding="async" class="w-full h-full object-cover smooth-img" onload="this.style.opacity=1; this.parentElement.style.animation='none';">
+                </div>`);
+            });
+        </script>
+      </div>
+      <p class="text-base leading-relaxed mb-6" style="color: #5a4a4a;">Di sisi lain, kamu adalah anak organisasi dan mba-mba konten kreator. Take video, merangkai konten, dan menyebarkan vibes positif untuk orang lain. Autentik dan apa adanya. Ini versi kamu yang lebih bebas, lepas, dan bikin aku selalu sayang.</p>
+     </div>
+
+    </div>
+   </section>
+
+   <!-- RELATIONSHIP SECTION (Kamu & Aku) -->
+   <section class="w-full max-w-5xl mx-auto text-center">
+    <p class="text-xs font-heading tracking-[0.2em] uppercase" style="color: #c4a07a;">Kisah Kita</p>
+    <h3 class="font-display text-4xl md:text-5xl mt-3 mb-12" style="color: #3d2c2c;">Kamu & Aku</h3>
+    
+    <!-- Masonry Collage 9 Photos -->
+    <div class="masonry-columns text-left fade-in">
+        <script>
+            const relationshipPhotos = [
+                "67XGSTMV/IMG-1315-1.jpg", "rGWYLgJT/IMG-20240713-WA0117-1.jpg", "9mGvZss4/IMG-20240525-WA0075-1.jpg",
+                "5WKF25WX/IMG-4290-1.jpg", "3mtSJp39/874428-1774533356793-1.jpg", "0ynyCQnm/7b040e6b-b29e-44ca-81eb-44a14c13617.jpg", 
+                "TqqZgX05/IMG-3744-1.jpg", "9k8T3JJ3/IMG-20241009-WA0055-1.jpg", "Y7VkPc2n/IMG-6904-1.jpg"
+            ];
+            relationshipPhotos.forEach((photo) => {
+                let fullUrl = "https://i.ibb.co.com/" + photo;
+                document.write(`
+                <div class="img-wrapper img-hover-zoom cursor-pointer rounded-2xl shadow-sm inline-block w-full" onclick="openLightbox('${fullUrl}')">
+                    <img src="${fullUrl}" loading="lazy" decoding="async" class="w-full h-auto object-cover smooth-img rounded-2xl" onload="this.style.opacity=1; this.parentElement.style.animation='none';">
+                </div>`);
+            });
+        </script>
+    </div>
+
+    <div class="max-w-2xl mx-auto mt-12 fade-in fade-in-delay-1">
+     <p class="text-lg md:text-xl leading-relaxed mb-8" style="color: #5a4a4a;">Di tengah riuhnya kesibukan kita masing-masing, momen bersama kamu ibarat jeda yang paling aku tunggu. Dari obrolan random yang tidak jelas arahnya ke mana, sampai diskusi panjang soal masa depan yang membuat hari yang dilalui menjadi lebih hidup. Kita mungkin sama-sama masih belajar banyak hal, tapi rasanya berkesan karena belajarnya bersama kamu.</p>
+     <div class="h-px w-12 mx-auto" style="background: #c4a07a;"></div>
+     <p class="mt-8 text-sm font-heading" style="color: #b0a0a0;">— Aenad, untuk Sabina ♡</p>
+    </div>
+   </section>
+
+   <!-- PHOTO DUMP SECTION -->
+   <section class="w-full max-w-6xl mx-auto mt-8">
+    <div class="text-center mb-10">
+     <p class="text-xs font-heading tracking-[0.2em] uppercase" style="color: #c4a07a;">Di Balik Layar</p>
+     <h3 class="font-display text-3xl md:text-4xl mt-3" style="color: #3d2c2c;">Random Dump</h3>
+     <p class="mt-3 text-sm md:text-base text-gray-500 max-w-xl mx-auto">Kumpulan muka capek, momen absurd, dan hal-hal kecil yang malah membuat sadar... betapa serunya jalanin hari-hari bersama kamu.</p>
+    </div>
+    
+    <div class="masonry-columns text-left fade-in">
+        <script>
+            const photoDumpPhotos = [
+                "j9sTYYdq/IMG-139.jpg", "rK0LfH3y/IMG-092.jpg", "C5cr3f01/IMG-4285-1.jpg",
+                "9HzSM4hz/IMG-20240713-WA0096-1.jpg", "JwPNvXn0/IMG-20240525-WA0066-1.jpg", "zHCNMWcr/IMG-20240713-WA0092-1.jpg",
+                "21FCgyh9/IMG-3730-1.jpg", "Q7cFxfkm/IMG-3371-1.jpg", "vC4hF6CC/PHOTO-2026-05-01-17-51-32-1.jpg"
+            ];
+            photoDumpPhotos.forEach((photo) => {
+                let fullUrl = "https://i.ibb.co.com/" + photo;
+                document.write(`
+                <div class="dump-pic img-wrapper img-hover-zoom cursor-pointer rounded-xl shadow-md inline-block w-full border-4 border-white" onclick="openLightbox('${fullUrl}')">
+                    <img src="${fullUrl}" loading="lazy" decoding="async" class="w-full h-auto object-cover smooth-img rounded-lg" onload="this.style.opacity=1; this.parentElement.style.animation='none';">
+                </div>`);
+            });
+        </script>
+    </div>
+   </section>
+
+   <!-- GIF SECTION (Momen Bergerak) -->
+   <section class="w-full max-w-6xl mx-auto mt-12 mb-8" style="background: rgba(253, 246, 241, 0.4); border-radius: 3rem;">
+    <div class="text-center mb-10">
+     <p class="text-xs font-heading tracking-[0.2em] uppercase" style="color: #c4a07a;">Biar Nggak Lupa Muka Imuy Kita</p>
+     <h3 class="font-display text-3xl md:text-4xl mt-3" style="color: #3d2c2c;">Momen Bergerak</h3>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 px-4 md:px-8">
+        <script>
+            const gifs = [
+                "844wqwWw/54d32e67-de43-4e48-972a-38965e247c29.gif",
+                "NnGcvFvQ/Sukhakala-GIF-1.gif",
+                "jvBDbFVg/0fb25a9c-dd22-4a0f-a4c8-b610285a0a99.gif",
+                "7JKKy61n/Adobe-Express-IMG-6900.gif"
+            ];
+            gifs.forEach((gif) => {
+                let fullUrl = "https://i.ibb.co.com/" + gif;
+                document.write(`
+                <div class="img-wrapper img-hover-zoom cursor-pointer rounded-2xl shadow-sm flex items-center justify-center bg-white p-2" onclick="openLightbox('${fullUrl}')">
+                    <img src="${fullUrl}" loading="lazy" decoding="async" class="w-full h-auto object-contain smooth-img rounded-xl" style="max-height: 400px;" onload="this.style.opacity=1; this.parentElement.style.animation='none';">
+                </div>`);
+            });
+        </script>
+    </div>
+   </section>
+
+ <!-- CLOSING LETTER SECTION -->
+   <section class="w-full max-w-3xl mx-auto text-center relative mt-8">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-32 rounded-full opacity-5" style="background: #d4849a; filter: blur(40px);"></div>
+    <p class="text-xs font-heading tracking-[0.2em] uppercase relative z-10 mb-8" style="color: #c4a07a;">Surat Penutup</p>
+    
+    <div class="bg-white rounded-3xl p-10 md:p-12 relative z-10 shadow-sm" style="background: rgba(255, 255, 255, 0.8); border: 1px solid rgba(212, 132, 154, 0.1);">
+     
+     <h3 class="font-display text-xl md:text-2xl text-left mb-6" style="color: #3d2c2c;">Dear sayangku Sabina Belle<br>Marella Selaveda,</h3>
+     
+     <p class="text-base md:text-lg leading-relaxed text-justify" style="color: #5a4a4a;">Pada usiamu yang ke-21 ini, aku hanya ingin bilang terima kasih. Terima kasih sudah mau terus berproses, bukan hanya untuk membentuk versi terbaik dari dirimu sendiri, tetapi juga untuk hubungan kita. <br><br>Setahun sudah kamu menjalani usia 20an sayang, banyak hal yang sudah kamu lalui dan banyak juga momen hidup yang kamu alami yang sedikit banyak membentuk dirimu hingga saat ini. <br><br>Ini adalah waktumu makin memperjelas arah tujuan hidup dan mempersiapkan diri untuk menghadapi masa akhir perkuliahan. Selama ini kamu adalah orang yang mau belajar dan mau mengambil kesempatan, maka di usia 21 ini pun aku harap kemauan kuat itu terus kamu kembangkan dan jangan dibiarkan pudar hanya karena momen yang mungkin kurang mengenakkan. <br><br>Jangan lupa untuk selalu mensyukuri nikmat dan muhasabah serta memperbaiki diri ya sayang. Ingat, dalam setiap langkah yang kamu pijakkan ada doa-doa menyertaimu yang mungkin kamu sendiri tidak menyadarinya. Sebanyak apapun dosa yang kita lakukan, jangan malu untuk meminta ampunan Allah, menjaga ibadah sekuat kita, dan meluruskan niat untuk apapun yang sedang diusahakan. <br><br>Semoga hal-hal baik selalu menyertai, dilimpahkan rezeki, dan dimudahkan dalam segala urusan kehidupanmu saat ini serta di part kehidupan selanjutnya ya sayang. <i>Let's write more beautiful chapters together,</i> <i>Love U Sayangku ♡</i></p>
+     
+     <!-- TANDA TANGAN SECTION -->
+     <div class="mt-10 flex flex-col items-end text-right">
+       <p class="text-base md:text-lg" style="color: #5a4a4a;">Salam hangat,</p>
+       <img src="https://i.ibb.co.com/WNrmbm4C/TTD-Aenad-1.png" alt="Tanda Tangan Aenad" class="h-20 my-2 opacity-90 mix-blend-multiply" style="object-fit: contain;">
+       <p class="font-heading text-lg" style="color: #3d2c2c;">Aenad Al Mubarik</p>
+     </div>
+
+    </div>
+   </section>
+
+   <!-- FOOTER -->
+   <section class="w-full text-center border-t pb-10 mt-12" style="border-color: rgba(196, 160, 122, 0.2); background: rgba(253, 246, 241, 0.5);">
+    <p class="text-xs font-heading tracking-widest" style="color: #c4a07a;">Dibuat dengan cinta untuk hari istimewa sayangku Sabina ✨</p>
+    <p class="text-xs mt-3" style="color: #b0a0a0;">21st Birthday • A Tribute to You<br>- Aenad Al Mubarik -</p>
+   </section>
+
+  </div>
+
+  <!-- LIGHTBOX MODAL (UNTUK MENAMPILKAN FOTO BESAR) -->
+  <div id="lightbox" class="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-sm items-center justify-center p-4" onclick="closeLightbox()">
+    <button class="absolute top-6 right-6 text-white bg-white/20 hover:bg-white/40 p-2 rounded-full transition" onclick="closeLightbox()">
+        <i data-lucide="x" class="w-6 h-6"></i>
+    </button>
+    
+    <div class="relative max-w-5xl w-full flex flex-col items-center">
+        <img id="lightbox-img" src="" class="max-h-[85vh] object-contain rounded-lg shadow-2xl" onclick="event.stopPropagation()">
+    </div>
+  </div>
+
+  <!-- JS LOGIC -->
+  <script>
+    lucide.createIcons();
+
+    // --- LOGIKA LIGHTBOX ---
+    function openLightbox(src) {
+        const lb = document.getElementById('lightbox');
+        const img = document.getElementById('lightbox-img');
+
+        img.src = src;
+        lb.classList.remove('hidden');
+        lb.classList.add('flex');
+        document.body.style.overflow = 'hidden'; // cegah scroll saat foto dibuka
+    }
+
+    function closeLightbox() {
+        const lb = document.getElementById('lightbox');
+        lb.classList.add('hidden');
+        lb.classList.remove('flex');
+        document.body.style.overflow = 'auto'; // kembalikan scroll
+        setTimeout(() => document.getElementById('lightbox-img').src = '', 300);
+    }
+  </script>
+ </body>
+</html>
